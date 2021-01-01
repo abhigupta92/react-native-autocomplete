@@ -14,6 +14,7 @@ export interface AutocompleteProps extends TextInputProps {
     onSelectItem?: (item?: any) => void;
     searchKeys?: Array<string>;
     customItemRenderer?: (item: any, index: number) => React.ReactElement;
+    noResultComponent?: React.ReactElement;
     theme?: "light" | "dark";
 }
 export interface LayoutProps {
