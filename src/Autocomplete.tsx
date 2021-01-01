@@ -17,7 +17,7 @@ import {
 
 const themeColors: ThemeProps = {
   light: {
-    text: "#00000",
+    text: "#000000",
     borderBottomColor: "rgba(0, 0, 0, 0.4)",
     listBackgroundColor: "#ffffff",
   },
