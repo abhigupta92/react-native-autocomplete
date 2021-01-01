@@ -10,7 +10,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
-    "@sysbrew-ui/react-native-autocomplete": "file:../sysbrew-ui-react-native-autocomplete-0.0.1.tgz",
+    "@mad-family-ui/react-native-autocomplete": "file:../mad-family-ui-react-native-autocomplete-0.0.1.tgz",
     "react": "16.13.1",
     "react-native": "0.63.3",
     "react-native-gesture-handler": "^1.9.0"

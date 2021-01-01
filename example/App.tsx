@@ -13,7 +13,7 @@ import {SafeAreaView, StyleSheet, View, Text, Image} from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
-import Autocomplete from '@sysbrew-ui/react-native-autocomplete';
+import Autocomplete from '@mad-family-ui/react-native-autocomplete';
 
 const App = () => {
   const customItemRenderer = (item: any) => {
