@@ -51,6 +51,8 @@ const Autocomplete = (props: AutocompleteProps) => {
   const borderBottomColor = colors.borderBottomColor;
   const textColor = colors.text;
   const listBackgroundColor = colors.listBackgroundColor;
+  const optionSearchKeys =
+    searchKeys && searchKeys.length > 0 ? searchKeys : [valueKey];
 
   const [searchValue, setSearchValue] = useState("");
   const [listState, setListState] = useState<ListStateProps>({
@@ -105,7 +107,7 @@ const Autocomplete = (props: AutocompleteProps) => {
         show: true,
         filteredList: converter.convertFilteredList(
           list,
-          searchKeys || [],
+          optionSearchKeys || [],
           text
         ),
       });
