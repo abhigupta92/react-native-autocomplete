@@ -2,8 +2,10 @@
  * Sample React Native App
  * https://github.com/facebook/react-native
  *
+ * Generated with the TypeScript template
+ * https://github.com/react-native-community/react-native-template-typescript
+ *
  * @format
- * @flow strict-local
  */
 
 import React from 'react';
@@ -26,33 +28,30 @@ import {
 
 import Autocomplete from 'react-native-autocomplete';
 
-const App: () => React$Node = () => {
+declare const global: {HermesInternal: null | {}};
+
+const App = () => {
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Text>Test Autocomplete</Text>
-          <Autocomplete
-            list={[
-              {name: 'Orange', value: 'orange'},
-              {name: 'Apple', value: 'apple'},
-            ]}
-            labelKey="name"
-            valueKey="value"
-          />
-        </ScrollView>
-      </SafeAreaView>
-    </>
+    <View style={{width: '100%', height: '100%'}}>
+      <View
+        style={{width: '100%', height: '100%', marginTop: '30%', padding: 12}}>
+        <Autocomplete
+          list={[
+            {name: 'Name 1', value: 'name1'},
+            {name: 'Name 2', value: 'name2'},
+            {name: 'Name 3', value: 'name3'},
+            {name: 'Name 4', value: 'name4'},
+          ]}
+          labelKey="name"
+          valueKey="value"
+        />
+      </View>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   scrollView: {
-    // flex: 1,
-    height: '100%',
     backgroundColor: Colors.lighter,
   },
   engine: {
