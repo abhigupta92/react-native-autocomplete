@@ -101,6 +101,22 @@ const App = () => {
             customItemRenderer={customItemRenderer}
           />
         </View>
+        <View style={{marginTop: 20, backgroundColor: 'black'}}>
+          <Text style={{color: 'white'}}>Dark Theme</Text>
+        </View>
+        <View style={{width: '100%', backgroundColor: 'black'}}>
+          <Autocomplete
+            list={[
+              {name: 'Apple', value: 'apple'},
+              {name: 'Orange', value: 'orange'},
+              {name: 'Grape', value: 'grape'},
+              {name: 'Banana', value: 'banana'},
+            ]}
+            labelKey="name"
+            valueKey="value"
+            theme="dark"
+          />
+        </View>
       </View>
     </SafeAreaView>
   );
