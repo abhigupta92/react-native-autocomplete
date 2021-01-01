@@ -44,6 +44,7 @@ const Autocomplete = (props: AutocompleteProps) => {
     defaultValue,
     searchKeys,
     customItemRenderer,
+    noResultComponent,
     theme = "light",
   } = props;
 
@@ -131,7 +132,9 @@ const Autocomplete = (props: AutocompleteProps) => {
   );
 
   const renderEmpty = () => {
-    return (
+    return noResultComponent ? (
+      noResultComponent
+    ) : (
       <View>
         <Text style={{ color: textColor }}>No Results</Text>
       </View>

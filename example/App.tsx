@@ -9,27 +9,11 @@
  */
 
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-  Image,
-} from 'react-native';
+import {SafeAreaView, StyleSheet, View, Text, Image} from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 import Autocomplete from '@sysbrew-ui/react-native-autocomplete';
-
-declare const global: {HermesInternal: null | {}};
 
 const App = () => {
   const customItemRenderer = (item: any) => {
@@ -41,6 +25,14 @@ const App = () => {
         <View style={{flex: 9}}>
           <Text>{item.name}</Text>
         </View>
+      </View>
+    );
+  };
+
+  const NoResult = () => {
+    return (
+      <View style={{backgroundColor: 'rgba(0, 0, 0, 0.3)'}}>
+        <Text style={{color: 'red'}}>No Result</Text>
       </View>
     );
   };
@@ -57,7 +49,7 @@ const App = () => {
         <View>
           <Text>Default</Text>
         </View>
-        <View style={{width: '100%', zIndex: 2}}>
+        <View style={{width: '100%', zIndex: 3}}>
           <Autocomplete
             list={[
               {name: 'Apple', value: 'apple'},
@@ -72,7 +64,7 @@ const App = () => {
         <View style={{marginTop: 20}}>
           <Text>Custom</Text>
         </View>
-        <View style={{width: '100%'}}>
+        <View style={{width: '100%', zIndex: 2}}>
           <Autocomplete
             list={[
               {
@@ -99,12 +91,13 @@ const App = () => {
             labelKey="name"
             valueKey="value"
             customItemRenderer={customItemRenderer}
+            noResultComponent={<NoResult />}
           />
         </View>
         <View style={{marginTop: 20, backgroundColor: 'black'}}>
           <Text style={{color: 'white'}}>Dark Theme</Text>
         </View>
-        <View style={{width: '100%', backgroundColor: 'black'}}>
+        <View style={{width: '100%', backgroundColor: 'black', zIndex: 1}}>
           <Autocomplete
             list={[
               {name: 'Apple', value: 'apple'},
