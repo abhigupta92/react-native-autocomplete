@@ -16,6 +16,7 @@ import {
   View,
   Text,
   StatusBar,
+  Image,
 } from 'react-native';
 
 import {
@@ -26,27 +27,82 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import Autocomplete from 'react-native-autocomplete';
+import Autocomplete from '@sysbrew-ui/react-native-autocomplete';
 
 declare const global: {HermesInternal: null | {}};
 
 const App = () => {
-  return (
-    <View style={{width: '100%', height: '100%'}}>
-      <View
-        style={{width: '100%', height: '100%', marginTop: '30%', padding: 12}}>
-        <Autocomplete
-          list={[
-            {name: 'Name 1', value: 'name1'},
-            {name: 'Name 2', value: 'name2'},
-            {name: 'Name 3', value: 'name3'},
-            {name: 'Name 4', value: 'name4'},
-          ]}
-          labelKey="name"
-          valueKey="value"
-        />
+  const customItemRenderer = (item: any) => {
+    return (
+      <View style={{flexDirection: 'row', width: '100%'}}>
+        <View style={{flex: 1}}>
+          <Image source={item.icon} style={{height: 20, width: 20}} />
+        </View>
+        <View style={{flex: 9}}>
+          <Text>{item.name}</Text>
+        </View>
       </View>
-    </View>
+    );
+  };
+
+  return (
+    <SafeAreaView>
+      <View
+        style={{
+          width: '100%',
+          height: '100%',
+          padding: 12,
+          flexDirection: 'column',
+        }}>
+        <View>
+          <Text>Default</Text>
+        </View>
+        <View style={{width: '100%', zIndex: 2}}>
+          <Autocomplete
+            list={[
+              {name: 'Apple', value: 'apple'},
+              {name: 'Orange', value: 'orange'},
+              {name: 'Grape', value: 'grape'},
+              {name: 'Banana', value: 'banana'},
+            ]}
+            labelKey="name"
+            valueKey="value"
+          />
+        </View>
+        <View style={{marginTop: 20}}>
+          <Text>Custom</Text>
+        </View>
+        <View style={{width: '100%'}}>
+          <Autocomplete
+            list={[
+              {
+                name: 'Apple',
+                value: 'apple',
+                icon: require('./assets/apple.jpeg'),
+              },
+              {
+                name: 'Orange',
+                value: 'orange',
+                icon: require('./assets/orange.jpg'),
+              },
+              {
+                name: 'Grape',
+                value: 'grape',
+                icon: require('./assets/grape.jpg'),
+              },
+              {
+                name: 'Banana',
+                value: 'banana',
+                icon: require('./assets/banana.png'),
+              },
+            ]}
+            labelKey="name"
+            valueKey="value"
+            customItemRenderer={customItemRenderer}
+          />
+        </View>
+      </View>
+    </SafeAreaView>
   );
 };
 
