@@ -52,7 +52,7 @@ list | Array of object | List of objects used as the data for the Autocomplete |
 | onSelectItem | (item: any) => void | When Item is selected, this function is invoked to return the selected item. |
 | customItemRenderer | (item: any, index: number) => React.ReactElement | Custom Item Renderer |
 | noResultComponent | React.ReactElement | Custom No Result Component |
-| theme | "light" | "dark" | Support for dark and light theme. Useful if creating an app when you are supporting phone theme used |
+| theme | "light"/"dark" | Support for dark and light theme. Useful if creating an app when you are supporting phone theme used |
     
 ## Contribute
 Feel free to open issues or do a PR!
