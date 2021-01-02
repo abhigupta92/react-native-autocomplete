@@ -1,6 +1,6 @@
 {
   "name": "@mad-family-ui/react-native-autocomplete",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Simple and Customisable Autocomplete component for iOS and Android",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
