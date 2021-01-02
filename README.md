@@ -49,7 +49,7 @@ A pure TypeScript autocomplete component for React Native (iOS) (Android - Not w
 
 ![Autocomplete Example](https://bitbucket.org/mad-family-ui/react-native-autocomplete/src/master/example_ios.gif)
 
-## How to use react-native-autocomplete-input
+## How to use react-native-autocomplete
 
 ### Installation
 
@@ -62,18 +62,18 @@ $ npm install --save @mad-family-ui/react-native-autocomplete
 ```javascript
 // ...
 
-  return (
-    <Autocomplete
-        list={[
-          {name: 'Apple', value: 'apple'},
-          {name: 'Orange', value: 'orange'},
-          {name: 'Grape', value: 'grape'},
-          {name: 'Banana', value: 'banana'},
-        ]}
-        labelKey="name"
-        valueKey="value"
-     />
-  );
+return (
+  <Autocomplete
+    list={[
+      { name: "Apple", value: "apple" },
+      { name: "Orange", value: "orange" },
+      { name: "Grape", value: "grape" },
+      { name: "Banana", value: "banana" },
+    ]}
+    labelKey="name"
+    valueKey="value"
+  />
+);
 
 // ...
 ```
@@ -81,23 +81,25 @@ $ npm install --save @mad-family-ui/react-native-autocomplete
 A complete example for iOS can be found [here](https://bitbucket.org/mad-family-ui/react-native-autocomplete/src/master/).
 
 ### Props
-| Prop | Type | Description |
-| :------------ |:---------------:| :-----|
-list | Array of object | List of objects used as the data for the Autocomplete |
-| zIndex | number | the container component will have this zIndex set. Useful when you have multiple Autocomplete in 1 Screen |
-| labelKey | string | The key searched for in the list for showing the text in the autocomplete suggestion list |
-| valueKey | string | The key searched for in the list for finding selected item |
-| searchKeys | Array of strings | This array of keys is used to filter out the suggestions from the list of objects passed  |
-| containerStyle | style | These styles will be applied to the container which surrounds the autocomplete component. |
-| listContainerStyle | style | These styles will be applied to the container which surrounds the autocomplete suggestion list component (ScrollView). |
-| inputContainerStyle | style | These styles will be applied to the input container which surrounds the input component. |
-| inputStyle | style | These styles will be applied to the input component. |
-| listItemContainerStyle | style | These styles will be applied to the container which surrounds the suggestion item component. |
-| listItemTextStyle | style | These styles will be applied to the suggestion item. |
-| onSelectItem | (item: any) => void | When Item is selected, this function is invoked to return the selected item. |
-| customItemRenderer | (item: any, index: number) => React.ReactElement | Custom Item Renderer |
-| noResultComponent | React.ReactElement | Custom No Result Component |
-| theme | "light" | "dark" | Support for dark and light theme. Useful if creating an app when you are supporting phone theme used |
-    
+
+| Prop                   |                       Type                       | Description                                                                                                            |
+| :--------------------- | :----------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| list                   |                 Array of object                  | List of objects used as the data for the Autocomplete                                                                  |
+| zIndex                 |                      number                      | the container component will have this zIndex set. Useful when you have multiple Autocomplete in 1 Screen              |
+| labelKey               |                      string                      | The key searched for in the list for showing the text in the autocomplete suggestion list                              |
+| valueKey               |                      string                      | The key searched for in the list for finding selected item                                                             |
+| searchKeys             |                 Array of strings                 | This array of keys is used to filter out the suggestions from the list of objects passed                               |
+| containerStyle         |                      style                       | These styles will be applied to the container which surrounds the autocomplete component.                              |
+| listContainerStyle     |                      style                       | These styles will be applied to the container which surrounds the autocomplete suggestion list component (ScrollView). |
+| inputContainerStyle    |                      style                       | These styles will be applied to the input container which surrounds the input component.                               |
+| inputStyle             |                      style                       | These styles will be applied to the input component.                                                                   |
+| listItemContainerStyle |                      style                       | These styles will be applied to the container which surrounds the suggestion item component.                           |
+| listItemTextStyle      |                      style                       | These styles will be applied to the suggestion item.                                                                   |
+| onSelectItem           |               (item: any) => void                | When Item is selected, this function is invoked to return the selected item.                                           |
+| customItemRenderer     | (item: any, index: number) => React.ReactElement | Custom Item Renderer                                                                                                   |
+| noResultComponent      |                React.ReactElement                | Custom No Result Component                                                                                             |
+| theme                  |                     "light"                      | "dark"                                                                                                                 | Support for dark and light theme. Useful if creating an app when you are supporting phone theme used |
+
 ## Contribute
+
 Feel free to open issues or do a PR!
