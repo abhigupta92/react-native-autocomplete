@@ -1,0 +1,47 @@
+{
+  "name": "@mad-family-ui/react-native-autocomplete",
+  "version": "0.0.5",
+  "description": "Simple and Customisable Autocomplete component for iOS and Android",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhigupta92/react-native-autocomplete.git"
+  },
+  "keywords": [
+    "React Native Autocomplete",
+    "Autocomplete",
+    "React Native",
+    "Suggestions",
+    "Auto Fill"
+  ],
+  "author": "Abhishek Gupta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abhigupta92/react-native-autocomplete/issues"
+  },
+  "homepage": "https://github.com/abhigupta92/react-native-autocomplete#readme",
+  "devDependencies": {
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/react-native": "^0.63.37",
+    "metro-react-native-babel-preset": "^0.64.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-native": "^0.63.4",
+    "typescript": "^4.1.3"
+  },
+  "dependencies": {
+    "react-native-gesture-handler": "^1.9.0"
+  },
+  "peerDependencies": {
+    "react-native-gesture-handler": "^1.9.0"
+  },
+  "files": [
+    "lib/**/*"
+  ]
+}
