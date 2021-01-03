@@ -55,4 +55,5 @@ list | Array of object | List of objects used as the data for the Autocomplete |
 | theme | "light"/"dark" | Support for dark and light theme. Useful if creating an app when you are supporting phone theme used |
     
 ## Contribute
-Feel free to open issues or do a PR!
+- Android has issues with able to detect clicks with absolute positioning. If you could help solve this issue, please help :)
+- Feel free to open issues or do a PR!
