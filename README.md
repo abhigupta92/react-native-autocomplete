@@ -56,6 +56,10 @@ containerHeight | string / number | The outermost container height |
 | noResultComponent | React.ReactElement | Custom No Result Component |
 | theme | "light"/"dark" | Support for dark and light theme. Useful if creating an app when you are supporting phone theme used |
 
+## Android
+
+- To make this component work on Android, we need to specify the containerHeight property as Android cannot detect clicks in absolute positioning.
+
 ## Changelog
 
 <u>1.0.0</u>
