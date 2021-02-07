@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import {
+  FlatList,
   LayoutChangeEvent,
   StyleSheet,
   Text,
   TextInput,
   View,
 } from "react-native";
-import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import converter from "./converter";
 import {
   AutocompleteProps,
@@ -115,21 +116,23 @@ const Autocomplete = (props: AutocompleteProps) => {
     }
   };
 
-  const itemRenderer = (item: any, index: number) => (
-    <TouchableOpacity
-      key={index}
-      onPress={selectItem(item)}
-      style={[styles.listItem, listItemContainerStyle]}
-    >
-      {customItemRenderer ? (
-        customItemRenderer(item, index)
-      ) : (
-        <Text style={[{ color: textColor }, listItemTextStyle]}>
-          {item[labelKey]}
-        </Text>
-      )}
-    </TouchableOpacity>
-  );
+  const itemRenderer = ({ item, index }: any) => {
+    return (
+      <TouchableOpacity
+        key={index}
+        onPress={selectItem(item)}
+        style={[styles.listItem, listItemContainerStyle]}
+      >
+        {customItemRenderer ? (
+          customItemRenderer(item, index)
+        ) : (
+          <Text style={[{ color: textColor }, listItemTextStyle]}>
+            {item[labelKey]}
+          </Text>
+        )}
+      </TouchableOpacity>
+    );
+  };
 
   const renderEmpty = () => {
     return noResultComponent ? (
@@ -164,18 +167,18 @@ const Autocomplete = (props: AutocompleteProps) => {
         />
       </View>
       {listState.show && (
-        <ScrollView
+        <FlatList
           style={[
             styles.listContainer,
             { backgroundColor: listBackgroundColor },
             listContainerStyle,
             { top: getTopPosition() },
           ]}
-        >
-          {listState.filteredList.length > 0 &&
-            listState.filteredList.map(itemRenderer)}
-          {listState.filteredList.length === 0 && renderEmpty()}
-        </ScrollView>
+          data={listState.filteredList}
+          renderItem={itemRenderer}
+          ListEmptyComponent={renderEmpty}
+          keyExtractor={(_item: any, index: number) => index.toString()}
+        />
       )}
     </View>
   );
