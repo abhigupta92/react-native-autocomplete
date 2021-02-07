@@ -2,14 +2,13 @@ import React, { useEffect, useState } from "react";
 import {
   FlatList,
   LayoutChangeEvent,
+  Platform,
   StyleSheet,
   Text,
   TextInput,
   View,
-  TouchableOpacity as TouchableOpacityAndroid,
-  Platform,
 } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import converter from "./converter";
 import {
   AutocompleteProps,
@@ -42,7 +41,6 @@ const Autocomplete = (props: AutocompleteProps) => {
     inputContainerStyle,
     inputStyle,
     containerStyle,
-    containerHeight,
     listItemContainerStyle,
     listItemTextStyle,
     defaultValue,
@@ -119,22 +117,24 @@ const Autocomplete = (props: AutocompleteProps) => {
     }
   };
 
+  const itemRendererAndroid = (item: any, index: number) => (
+    <TouchableOpacity
+      key={index}
+      onPress={selectItem(item)}
+      style={[styles.listItem, listItemContainerStyle]}
+    >
+      {customItemRenderer ? (
+        customItemRenderer(item, index)
+      ) : (
+        <Text style={[{ color: textColor }, listItemTextStyle]}>
+          {item[labelKey]}
+        </Text>
+      )}
+    </TouchableOpacity>
+  );
+
   const itemRenderer = ({ item, index }: any) => {
-    return Platform.OS === "android" ? (
-      <TouchableOpacityAndroid
-        key={index}
-        onPress={selectItem(item)}
-        style={[styles.listItem, listItemContainerStyle]}
-      >
-        {customItemRenderer ? (
-          customItemRenderer(item, index)
-        ) : (
-          <Text style={[{ color: textColor }, listItemTextStyle]}>
-            {item[labelKey]}
-          </Text>
-        )}
-      </TouchableOpacityAndroid>
-    ) : (
+    return (
       <TouchableOpacity
         key={index}
         onPress={selectItem(item)}
@@ -166,7 +166,6 @@ const Autocomplete = (props: AutocompleteProps) => {
       style={[
         styles.container,
         containerStyle,
-        { height: containerHeight },
         { zIndex: zIndex ? zIndex : 1 },
       ]}
     >
@@ -184,7 +183,21 @@ const Autocomplete = (props: AutocompleteProps) => {
           ]}
         />
       </View>
-      {listState.show && (
+      {Platform.OS === "android" && listState.show && (
+        <ScrollView
+          style={[
+            styles.listContainer,
+            { backgroundColor: listBackgroundColor },
+            listContainerStyle,
+            { top: getTopPosition() },
+          ]}
+        >
+          {listState.filteredList.length > 0 &&
+            listState.filteredList.map(itemRendererAndroid)}
+          {listState.filteredList.length === 0 && renderEmpty()}
+        </ScrollView>
+      )}
+      {Platform.OS === "ios" && listState.show && (
         <FlatList
           style={[
             styles.listContainer,
@@ -203,7 +216,7 @@ const Autocomplete = (props: AutocompleteProps) => {
 };
 
 const styles = StyleSheet.create({
-  container: { zIndex: 1, width: "100%" },
+  container: { zIndex: 1 },
   inputContainer: { width: "100%" },
   listContainer: {
     flexDirection: "column",
@@ -219,7 +232,7 @@ const styles = StyleSheet.create({
     shadowRadius: 6.68,
     elevation: 11,
     padding: 8,
-    zIndex: 10,
+    zIndex: 15,
   },
   listItem: {
     width: "100%",
