@@ -201,7 +201,7 @@ const Autocomplete = (props: AutocompleteProps) => {
 };
 
 const styles = StyleSheet.create({
-  container: { zIndex: 1, height: "100%", width: "100%" },
+  container: { zIndex: 1, width: "100%" },
   inputContainer: { width: "100%" },
   listContainer: {
     flexDirection: "column",

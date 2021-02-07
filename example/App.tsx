@@ -9,7 +9,14 @@
  */
 
 import React from 'react';
-import {SafeAreaView, StyleSheet, View, Text, Image} from 'react-native';
+import {
+  SafeAreaView,
+  StyleSheet,
+  View,
+  Text,
+  Image,
+  Platform,
+} from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
@@ -49,7 +56,12 @@ const App = () => {
         <View>
           <Text>Default</Text>
         </View>
-        <View style={{width: '100%', zIndex: 3}}>
+        <View
+          style={{
+            width: '100%',
+            zIndex: 3,
+            maxHeight: Platform.OS === 'android' ? '100%' : 30,
+          }}>
           <Autocomplete
             list={[
               {name: 'Apple', value: 'apple'},
@@ -64,7 +76,7 @@ const App = () => {
         <View style={{marginTop: 20}}>
           <Text>Custom</Text>
         </View>
-        <View style={{width: '100%', zIndex: 2}}>
+        <View style={{width: '100%', zIndex: 2, maxHeight: 30}}>
           <Autocomplete
             list={[
               {
@@ -97,7 +109,13 @@ const App = () => {
         <View style={{marginTop: 20, backgroundColor: 'black'}}>
           <Text style={{color: 'white'}}>Dark Theme</Text>
         </View>
-        <View style={{width: '100%', backgroundColor: 'black', zIndex: 1}}>
+        <View
+          style={{
+            width: '100%',
+            backgroundColor: 'black',
+            zIndex: 1,
+            maxHeight: 30,
+          }}>
           <Autocomplete
             list={[
               {name: 'Apple', value: 'apple'},
