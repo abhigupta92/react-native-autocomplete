@@ -54,6 +54,12 @@ list<span style="color:red;">*</span> | Array of object | List of objects used a
 | customItemRenderer | (item: any, index: number) => React.ReactElement | Custom Item Renderer |
 | noResultComponent | React.ReactElement | Custom No Result Component |
 | theme | "light"/"dark" | Support for dark and light theme. Useful if creating an app when you are supporting phone theme used |
+
+## Changelog
+
+<u>1.0.0</u>
+- Used Flatlist instead of Scrollview for performance improvements.
+
     
 ## Contribute
 - Android has issues with able to detect clicks with absolute positioning. If you could help solve this issue, please help :)
