@@ -6,6 +6,8 @@ import {
   Text,
   TextInput,
   View,
+  TouchableOpacity as TouchableOpacityAndroid,
+  Platform,
 } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import converter from "./converter";
@@ -117,7 +119,21 @@ const Autocomplete = (props: AutocompleteProps) => {
   };
 
   const itemRenderer = ({ item, index }: any) => {
-    return (
+    return Platform.OS === "android" ? (
+      <TouchableOpacityAndroid
+        key={index}
+        onPress={selectItem(item)}
+        style={[styles.listItem, listItemContainerStyle]}
+      >
+        {customItemRenderer ? (
+          customItemRenderer(item, index)
+        ) : (
+          <Text style={[{ color: textColor }, listItemTextStyle]}>
+            {item[labelKey]}
+          </Text>
+        )}
+      </TouchableOpacityAndroid>
+    ) : (
       <TouchableOpacity
         key={index}
         onPress={selectItem(item)}
@@ -185,7 +201,7 @@ const Autocomplete = (props: AutocompleteProps) => {
 };
 
 const styles = StyleSheet.create({
-  container: { zIndex: 1 },
+  container: { zIndex: 1, height: "100%", width: "100%" },
   inputContainer: { width: "100%" },
   listContainer: {
     flexDirection: "column",
