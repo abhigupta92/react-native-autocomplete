@@ -42,6 +42,7 @@ const Autocomplete = (props: AutocompleteProps) => {
     inputContainerStyle,
     inputStyle,
     containerStyle,
+    containerHeight,
     listItemContainerStyle,
     listItemTextStyle,
     defaultValue,
@@ -165,6 +166,7 @@ const Autocomplete = (props: AutocompleteProps) => {
       style={[
         styles.container,
         containerStyle,
+        { height: containerHeight },
         { zIndex: zIndex ? zIndex : 1 },
       ]}
     >

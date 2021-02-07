@@ -40,6 +40,7 @@ A complete example for iOS can be found [here](https://github.com/abhigupta92/re
 | :------------ |:---------------:| :-----:|
 list<span style="color:red;">*</span> | Array of object | List of objects used as the data for the Autocomplete |
 | zIndex | number | the container component will have this zIndex set. Useful when you have multiple Autocomplete in 1 Screen |
+containerHeight | string / number | The outermost container height |
 | labelKey<span style="color:red;">*</span> | string | The key searched for in the list for showing the text in the autocomplete suggestion list |
 | valueKey<span style="color:red;">*</span> | string | The key searched for in the list for finding selected item |
 | searchKeys<span style="color:red;">*</span> | Array of strings | This array of keys is used to filter out the suggestions from the list of objects passed

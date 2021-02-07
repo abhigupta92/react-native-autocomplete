@@ -3,6 +3,7 @@ import { TextInputProps, TextStyle, ViewStyle } from "react-native";
 export interface AutocompleteProps extends TextInputProps {
   list: Array<any>;
   zIndex?: number;
+  containerHeight?: number | string;
   containerStyle?: ViewStyle;
   listContainerStyle?: ViewStyle;
   inputContainerStyle?: ViewStyle;
